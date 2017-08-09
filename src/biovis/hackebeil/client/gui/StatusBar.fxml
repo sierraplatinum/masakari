@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2016 Alrik Hausdorf, Nicole Hinzmann Licensed under the Apache 
+License, Version 2.0 (the "License"); you may not use this file except in 
+compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+Unless required by applicable law or agreed to in writing, software distributed 
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+the specific language governing permissions and limitations under the License. -->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="biovis.hackebeil.client.gui.StatusBarController">
+    <left>
+        <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="labelConnectionState" text="not connected" />
+            </children>
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </padding>
+        </HBox>
+    </left>
+    <center>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <ProgressIndicator fx:id="serverState" prefHeight="15.0" progress="0.0" visible="false" />
+                <Label fx:id="done" layoutX="50.0" layoutY="12.0" visible="false" />
+                <Label fx:id="lastEvent" layoutX="10.0" layoutY="10.0" />
+            </children>
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </padding>
+        </HBox>
+    </center>
+    <right>
+        <HBox alignment="CENTER_RIGHT" onMouseClicked="#recalculateRamUsage" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="RAM: " />
+                <Label fx:id="ramUsageState" layoutX="10.0" layoutY="10.0" text="(0/0)" />
+            </children>
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </padding>
+        </HBox>
+    </right>
+    <padding>
+        <Insets top="5.0" />
+    </padding>
+</BorderPane>

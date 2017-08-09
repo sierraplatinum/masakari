@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="build_all" name="Hackebeil-Client">
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+	<!--define folder properties-->
+	<property name="dir.buildfile" value="." />
+	<property name="dir.workspace" value="${dir.buildfile}" />
+	<property name="dir.dist" value="${dir.workspace}/dist" />
+	<property name="dir.lib" value="${dir.workspace}/lib" />
+	<property name="dir.bin" value="${dir.workspace}/bin" />
+	<property name="dir.src" value="${dir.workspace}/src" />
+	<property name="dir.client" value="${dir.dist}/client" />
+	<property name="dir.server" value="${dir.dist}/server" />
+	<path id="classpath">
+		<fileset dir="${dir.lib}" includes="*.jar" />
+	</path>
+	<target name="build_all" depends="compile, build_client_jar, build_server_jar">
+
+	</target>
+	<target name="compile" description="Compile source">
+		<delete dir="${dir.bin}" />
+		<mkdir dir="${dir.bin}" />
+		<javac srcdir="${dir.workspace}/src" destdir="${dir.workspace}/bin" classpathref="classpath" includeantruntime="false" />
+		<copy todir="${dir.bin}">
+			<fileset dir="${dir.src}" excludes="**/*.java"/>
+		</copy>
+	</target>
+	<target name="build_client_jar">
+		<jar destfile="${dir.client}/hackebeil-client.jar">
+			<manifest>
+				<attribute name="Main-Class" value="biovis.hackebeil.client.gui.HackebeilClient" />
+				<attribute name="Class-Path" value=". lib/biovislib.jar lib/commons-io-2.4.jar lib/commons-logging-1.2.jar lib/commons-vfs-biovis-2.0.jar lib/gson-2.3.1-javadoc.jar lib/gson-2.3.1.jar lib/VfsFileChooser.jar" />
+			</manifest>
+			<fileset dir="${dir.workspace}/bin" />
+		</jar>
+		<delete dir="${dir.client}/lib" />
+		<mkdir dir="${dir.client}/lib" />
+		<copy file="${dir.workspace}/lib/biovislib.jar" todir="${dir.client}/lib" />
+		<copy file="${dir.workspace}/lib/commons-io-2.4.jar" todir="${dir.client}/lib" />
+		<copy file="${dir.workspace}/lib/commons-logging-1.2.jar" todir="${dir.client}/lib" />
+		<copy file="${dir.workspace}/lib/commons-vfs-biovis-2.0.jar" todir="${dir.client}/lib" />
+		<copy file="${dir.workspace}/lib/gson-2.3.1-javadoc.jar" todir="${dir.client}/lib" />
+		<copy file="${dir.workspace}/lib/gson-2.3.1.jar" todir="${dir.client}/lib" />
+		<copy file="${dir.workspace}/lib/VfsFileChooser.jar" todir="${dir.client}/lib" />
+	</target>
+	<target name="build_server_jar">
+		<jar destfile="${dir.server}/hackebeil-server.jar">
+			<manifest>
+				<attribute name="Main-Class" value="biovis.hackebeil.server.commander.HackebeilServer" />
+				<attribute name="Class-Path" value=". lib/biovislib.jar lib/commons-io-2.4.jar lib/commons-logging-1.2.jar lib/commons-vfs-biovis-2.0.jar lib/gson-2.3.1-javadoc.jar lib/gson-2.3.1.jar lib/VfsFileChooser.jar" />
+			</manifest>
+			<fileset dir="${dir.workspace}/bin" />
+		</jar>
+		<delete dir="${dir.server}/lib" />
+		<mkdir dir="${dir.server}/lib" />
+		<copy file="${dir.workspace}/lib/biovislib.jar" todir="${dir.server}/lib" />
+		<copy file="${dir.workspace}/lib/commons-io-2.4.jar" todir="${dir.server}/lib" />
+		<copy file="${dir.workspace}/lib/commons-logging-1.2.jar" todir="${dir.server}/lib" />
+		<copy file="${dir.workspace}/lib/commons-vfs-biovis-2.0.jar" todir="${dir.server}/lib" />
+		<copy file="${dir.workspace}/lib/gson-2.3.1-javadoc.jar" todir="${dir.server}/lib" />
+		<copy file="${dir.workspace}/lib/gson-2.3.1.jar" todir="${dir.server}/lib" />
+		<copy file="${dir.workspace}/lib/VfsFileChooser.jar" todir="${dir.server}/lib" />
+	</target>
+</project>

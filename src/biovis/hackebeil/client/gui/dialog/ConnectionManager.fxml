@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="250.0" maxWidth="400.0" minHeight="250.0" minWidth="301.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="biovis.hackebeil.client.gui.dialog.ConnectionManagerController">
+    <children>
+        <VBox fx:id="form_left"
+              spacing="15.0"
+              AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label text="Server:"
+                       minHeight="25.0" minWidth="100.0"
+                />
+                <Label text="Server port:"
+                       minHeight="25.0" minWidth="100.0"
+                />
+                <Label text="Client port:"
+                       minHeight="25.0" minWidth="100.0"
+                />
+                <Label text="Password"
+                       minHeight="25.0" minWidth="100.0"
+                />
+            </children>
+        </VBox>
+        <VBox fx:id="form_right"
+              spacing="15.0"
+              AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <TextField fx:id="textFieldServer"
+                           text="localhost"
+                           minHeight="25.0" minWidth="150.0"
+                />
+                <TextField fx:id="textFieldServerPort"
+                           text="9753"
+                           minHeight="25.0" minWidth="150.0"
+                />
+                <TextField fx:id="textFieldClientPort"
+                           text="9754"
+                           minHeight="25.0" minWidth="150.0"
+                />
+                <TextField fx:id="textFieldPassword"
+                           text="Swordfish"
+                           minHeight="25.0" minWidth="150.0"
+                />
+            </children>
+        </VBox>
+        <CheckBox fx:id="checkBoxStartLocal"
+                  mnemonicParsing="false" onAction="#testLocalServer" selected="true" text="Start local server"
+                  AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Button fx:id="connect"
+                mnemonicParsing="false" onAction="#handleConnect" text="connect"
+                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+</AnchorPane>

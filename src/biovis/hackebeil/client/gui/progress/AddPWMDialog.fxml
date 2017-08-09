@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2016 Alrik Hausdorf, Nicole Hinzmann Licensed under the Apache 
+License, Version 2.0 (the "License"); you may not use this file except in 
+compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+Unless required by applicable law or agreed to in writing, software distributed 
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+the specific language governing permissions and limitations under the License. -->
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="biovis.hackebeil.client.gui.progress.AddPWMDialogController">
+    <children>
+        <HBox alignment="CENTER" spacing="40.0">
+            <children>
+                <Button fx:id="btnAddFile" mnemonicParsing="false"
+                        onAction="#handleAddFile" text="Select Matrix"/>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" spacing="40.0">
+            <children>
+                <Label fx:id="lAddPWM" prefHeight="25.0" minWidth="200.0"
+                       text="No matrix selected."/>
+            </children>
+            <padding>
+                <Insets bottom="1.0" left="5.0" right="15.0" top="5.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" spacing="40.0">
+            <children>
+                <fx:define>
+                    <ToggleGroup fx:id="tgValue" />
+                </fx:define>
+                <RadioButton fx:id="rButtonMedian" mnemonicParsing="false"
+                             text="Median" onAction="#selectMedian"
+                             toggleGroup="$tgValue"
+                />
+                <RadioButton fx:id="rButtonMax" mnemonicParsing="false"
+                             text="Maximum" onAction="#selectMax"
+                             toggleGroup="$tgValue"
+                />
+                <RadioButton fx:id="rButtonCutoff" mnemonicParsing="false"
+                             text="Cutoff" onAction="#selectCutoff"
+                             toggleGroup="$tgValue"
+                             selected="true" 
+                />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" spacing="40.0">
+            <children>
+                <fx:define>
+                    <ToggleGroup fx:id="tgNormalized" />
+                </fx:define>
+                <RadioButton fx:id="rButtonNormalized" mnemonicParsing="false"
+                             text="density (normalized values)" toggleGroup="$tgNormalized" 
+                             selected="true" 
+                />
+                <RadioButton fx:id="rButtonRaw" mnemonicParsing="false"
+                             text="count (raw values)" toggleGroup="$tgNormalized" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" spacing="40.0">
+            <children>
+                <Label fx:id="lCutofffValue" prefHeight="25.0" minWidth="50.0" text="Cutoff Value"/>
+                <TextField fx:id="tfCutoffValue" minWidth="50.0" text="0.0"/>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" spacing="40.0">
+            <children>
+                <Button fx:id="btnAddPWM" minWidth="100.0" mnemonicParsing="false" onAction="#handleAddPWM" text="Add" />
+                <Button fx:id="btnCancel" minWidth="100.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="25.0" />
+            </padding>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+</VBox>

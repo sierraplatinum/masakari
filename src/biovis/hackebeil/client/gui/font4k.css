@@ -1,0 +1,11 @@
+ @font-face {
+	}
+    .root {
+        -fx-font-size: 12pt;
+     }
+     .axis{
+  -fx-tick-label-font-size: 12pt;
+  -fx-font-size: 12pt;
+}
+
+

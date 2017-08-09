@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2016 Alrik Hausdorf, Nicole Hinzmann Licensed under the Apache 
+License, Version 2.0 (the "License"); you may not use this file except in 
+compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+Unless required by applicable law or agreed to in writing, software distributed 
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+the specific language governing permissions and limitations under the License. -->
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="biovis.hackebeil.client.gui.output.lengthAnalysis.LengthAnalysisSegmentationController">
+    <children>
+        <GridPane fx:id="baseLayoutGrid"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="135.0" minHeight="0.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            </rowConstraints>
+            <children>
+                <AnchorPane GridPane.vgrow="NEVER">
+                    <children>
+                        <VBox alignment="CENTER"
+                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <HBox fx:id="logScaleSettings" alignment="CENTER" prefHeight="35.0">
+                                    <children>
+                                        <CheckBox fx:id="cbXAxisLogScale" mnemonicParsing="false"
+                                                  text="length log-scale" textAlignment="CENTER"
+                                        />
+                                        <CheckBox fx:id="cbYAxisLogScale" mnemonicParsing="false"
+                                                  text="occurrence log-scale"
+                                        >
+                                            <HBox.margin>
+                                                <Insets left="15.0" />
+                                            </HBox.margin>
+                                        </CheckBox>
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="rangeSettings" alignment="CENTER" prefHeight="35.0">
+                                    <children>
+                                        <Label alignment="CENTER" prefHeight="25.0" text="Range" />
+                                        <Button fx:id="btnReset"
+                                                text="reset"
+                                                onAction="#resetRange"
+                                                mnemonicParsing="false"
+                                                alignment="CENTER"
+                                                disable="true"
+                                        >
+                                            <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <TextField fx:id="tfFrom"
+                                                   onAction="#redraw"
+                                                   alignment="CENTER"
+                                                   maxWidth="100.0"
+                                        />
+                                        <Label alignment="CENTER" prefHeight="25.0" text="-" />
+                                        <TextField fx:id="tfTo"
+                                                   onAction="#redraw"
+                                                   alignment="CENTER"
+                                                   maxWidth="100.0"
+                                        />
+                                    </children>
+                                </HBox>
+                            </children>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="chartPane" GridPane.rowIndex="1">
+                </AnchorPane>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

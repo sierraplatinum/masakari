@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2016 Alrik Hausdorf, Nicole Hinzmann Licensed under the Apache 
+License, Version 2.0 (the "License"); you may not use this file except in 
+compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+Unless required by applicable law or agreed to in writing, software distributed 
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+the specific language governing permissions and limitations under the License. -->
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<Tab fx:id="tabFateOfCodeAnalysisRoot"
+     text="Fate of Code"
+     closable="false"
+     disable="true"
+     xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+     fx:controller="biovis.hackebeil.client.gui.output.fateOfCode.FateOfCodeController"
+>
+    <content>
+        <AnchorPane fx:id="rootPaneFxml"
+                    onMouseClicked="#click"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+        >
+            <children>
+                <HBox alignment="CENTER" fillHeight="false"
+                      prefHeight="40.0"
+                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+                >
+                    <children>
+                        <Label text="Threshold: " />
+                        <TextField fx:id="tfThreshold"
+                                   maxWidth="60.0"
+                                   onInputMethodTextChanged="#onThresholdInputChange"
+                                   onKeyReleased="#onThresholdInputChange"
+                                   promptText="0,8" text="0,8"
+                        />
+                        <Slider fx:id="sliderThreshold"
+                                minWidth="300.0" prefWidth="300.0"
+                                blockIncrement="0.01" majorTickUnit="0.1" max="1.0" minorTickCount="5"
+                                onDragDone="#applyThreshold"
+                                showTickMarks="true" snapToTicks="true"
+                                value="0.8"
+                        >
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                        </Slider>
+                        <Button fx:id="btnApplyThreshold"
+                                disable="true" mnemonicParsing="false"
+                                onAction="#applyThreshold"
+                                text="Apply" />
+                        <CheckBox fx:id="logColorScale"
+                                  mnemonicParsing="false"
+                                  text="Color log-scale"
+                        >
+                            <HBox.margin>
+                                <Insets left="15.0" />
+                            </HBox.margin>
+                        </CheckBox>
+                    </children>
+                </HBox>
+                <Accordion fx:id="accordionRoot"
+                           AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                    <panes>
+                        <TitledPane fx:id="setupPane" animated="false" text="Setup">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <GridPane fx:id="setupGridPane"
+                                                  alignment="CENTER" hgap="2.0" vgap="2.0"
+                                                  AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                        <Button fx:id="btnSubmit"
+                                                text="Submit"
+                                                mnemonicParsing="false" onAction="#startComputing"
+                                                layoutX="130.0" layoutY="154.0"
+                                                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="80.0" />
+                                        <Button text="Reset"
+                                                mnemonicParsing="false" onAction="#resetSetup"
+                                                layoutX="232.0" layoutY="145.0"
+                                                prefHeight="25.0" prefWidth="60.0"
+                                                AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+            </children>
+        </AnchorPane>
+    </content>
+</Tab>

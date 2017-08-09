@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2016 Alrik Hausdorf, Nicole Hinzmann Licensed under the Apache 
+License, Version 2.0 (the "License"); you may not use this file except in 
+compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+Unless required by applicable law or agreed to in writing, software distributed 
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+the specific language governing permissions and limitations under the License. -->
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxWidth="400.0" prefWidth="335.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="biovis.hackebeil.client.gui.progress.ProgressOverviewController">
+    <children>
+        <Accordion fx:id="accordion"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <panes>
+                <TitledPane fx:id="referenceGenome"
+                            animated="false"
+                            text="1. Select reference genome"
+                >
+                    <content>
+                        <AnchorPane fx:id="anchorReferenceGenome"/>
+                    </content>
+                </TitledPane>
+                <TitledPane fx:id="segmentation"
+                            animated="false"
+                            text="2. Select reference measurements"
+                >
+                    <content>
+                        <AnchorPane fx:id="anchorSegmentation"/>
+                    </content>
+                </TitledPane>
+                <TitledPane fx:id="additionalMeasurements"
+                            animated="false"
+                            text="3. Select additional measurements"
+                >
+                    <content>
+                        <AnchorPane fx:id="anchorAdditionalMeasurements" />
+                    </content>
+                </TitledPane>
+                <TitledPane fx:id="selectMotifs"
+                            animated="false"
+                            text="4. Select motifs"
+                >
+                    <content>
+                        <AnchorPane fx:id="anchorSelectMotifs" />
+                    </content>
+                </TitledPane>
+                <TitledPane fx:id="selectPWM"
+                            animated="false"
+                            text="5. Select PWMs"
+                >
+                    <content>
+                        <AnchorPane fx:id="anchorSelectPWM" />
+                    </content>
+                </TitledPane>
+            </panes>
+        </Accordion>
+    </children>
+</AnchorPane>
