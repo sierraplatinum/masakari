@@ -490,7 +490,7 @@ public class SegmentationWorker {
             if (locations != null) {
                 for (Location location : locations) {
                     if (queryLocation.isContained(location)) {
-                        System.out.println("|" + bedFile.getName());
+//                        System.out.println("|" + bedFile.getName());
                         List<Location> values = results.get(bedFile.getName());
                         if (values == null) {
                             values = new ArrayList<>();
